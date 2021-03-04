@@ -1,17 +1,38 @@
 {
-  "name": "lesson2",
+  "name": "TODO-List",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:scripts": "babel src --out-dir dist"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build:styles": "sass ./src/styles/index.scss ./dist/styles.css",
+    "copy:html": "@powershell copy ./src/index.html ./dist/index.html",
+    "build:scripts": "babel src/scripts --out-dir dist/scripts",
+    "clean": "@powershell rm ./dist -r -fo",
+    "build": "npm-run-all clean build:* copy:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gon4aruk/todo-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gon4aruk/todo-list/issues"
+  },
+  "homepage": "https://github.com/gon4aruk/todo-list#readme",
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9"
+    "@babel/preset-env": "^7.13.9",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "-": "0.0.1",
+    "core-js": "^3.9.1"
   }
 }
